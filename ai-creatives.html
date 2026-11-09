@@ -1,0 +1,44 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="June Sayon — Senior Video Editor & AI Creative Specialist"><title>AI-Powered Creatives | June Sayon</title><link rel="stylesheet" href="style.css"></head><body><main><header><a class="brand" href="index.html">JUNE SAYON.</a><nav><a href="index.html">HOME</a><a href="index.html#work">WORK</a><a href="index.html#about">ABOUT</a><a href="index.html#contact">CONTACT</a></nav></header><a class="back" href="index.html#work">← Back to Selected Work</a><section class="gallery-head"><div class="eyebrow">JUNE SAYON / SELECTED WORK</div><h1>AI-Powered Creatives</h1><p>AI UGC, 2D/3D animations, medical CGI and creative product storytelling. This gallery has 12 video slots.</p></section><section class="section"><div class="sectionhead"><h2>Video Gallery</h2><span class="tag">12 SLOTS</span></div><div class="grid" id="gallery"><article class="video-card"><div class="video-frame" id="video-1"><div class="video-empty"><b>▶</b><strong>Video 01</strong><small>Add a public Facebook or YouTube URL in VIDEO_LINKS below</small></div></div><h3>Video 01</h3><p>AI UGC · 2D/3D · Medical CGI</p></article><article class="video-card"><div class="video-frame" id="video-2"><div class="video-empty"><b>▶</b><strong>Video 02</strong><small>Add a public Facebook or YouTube URL in VIDEO_LINKS below</small></div></div><h3>Video 02</h3><p>AI UGC · 2D/3D · Medical CGI</p></article><article class="video-card"><div class="video-frame" id="video-3"><div class="video-empty"><b>▶</b><strong>Video 03</strong><small>Add a public Facebook or YouTube URL in VIDEO_LINKS below</small></div></div><h3>Video 03</h3><p>AI UGC · 2D/3D · Medical CGI</p></article><article class="video-card"><div class="video-frame" id="video-4"><div class="video-empty"><b>▶</b><strong>Video 04</strong><small>Add a public Facebook or YouTube URL in VIDEO_LINKS below</small></div></div><h3>Video 04</h3><p>AI UGC · 2D/3D · Medical CGI</p></article><article class="video-card"><div class="video-frame" id="video-5"><div class="video-empty"><b>▶</b><strong>Video 05</strong><small>Add a public Facebook or YouTube URL in VIDEO_LINKS below</small></div></div><h3>Video 05</h3><p>AI UGC · 2D/3D · Medical CGI</p></article><article class="video-card"><div class="video-frame" id="video-6"><div class="video-empty"><b>▶</b><strong>Video 06</strong><small>Add a public Facebook or YouTube URL in VIDEO_LINKS below</small></div></div><h3>Video 06</h3><p>AI UGC · 2D/3D · Medical CGI</p></article><article class="video-card"><div class="video-frame" id="video-7"><div class="video-empty"><b>▶</b><strong>Video 07</strong><small>Add a public Facebook or YouTube URL in VIDEO_LINKS below</small></div></div><h3>Video 07</h3><p>AI UGC · 2D/3D · Medical CGI</p></article><article class="video-card"><div class="video-frame" id="video-8"><div class="video-empty"><b>▶</b><strong>Video 08</strong><small>Add a public Facebook or YouTube URL in VIDEO_LINKS below</small></div></div><h3>Video 08</h3><p>AI UGC · 2D/3D · Medical CGI</p></article><article class="video-card"><div class="video-frame" id="video-9"><div class="video-empty"><b>▶</b><strong>Video 09</strong><small>Add a public Facebook or YouTube URL in VIDEO_LINKS below</small></div></div><h3>Video 09</h3><p>AI UGC · 2D/3D · Medical CGI</p></article><article class="video-card"><div class="video-frame" id="video-10"><div class="video-empty"><b>▶</b><strong>Video 10</strong><small>Add a public Facebook or YouTube URL in VIDEO_LINKS below</small></div></div><h3>Video 10</h3><p>AI UGC · 2D/3D · Medical CGI</p></article><article class="video-card"><div class="video-frame" id="video-11"><div class="video-empty"><b>▶</b><strong>Video 11</strong><small>Add a public Facebook or YouTube URL in VIDEO_LINKS below</small></div></div><h3>Video 11</h3><p>AI UGC · 2D/3D · Medical CGI</p></article><article class="video-card"><div class="video-frame" id="video-12"><div class="video-empty"><b>▶</b><strong>Video 12</strong><small>Add a public Facebook or YouTube URL in VIDEO_LINKS below</small></div></div><h3>Video 12</h3><p>AI UGC · 2D/3D · Medical CGI</p></article></div></section><script>
+// EDIT ONLY THE LINKS BELOW: paste public Facebook or YouTube video URLs between the quotes.
+const VIDEO_LINKS = [
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  ""
+];
+function embedUrl(link) {
+  try {
+    const u = new URL(link);
+    const host = u.hostname.toLowerCase();
+    if (host === 'facebook.com' || host.endsWith('.facebook.com') || host === 'fb.watch') {
+      return 'https://www.facebook.com/plugins/video.php?href=' + encodeURIComponent(link) + '&show_text=false';
+    }
+    if (host === 'youtu.be') return 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(u.pathname.slice(1).split('/')[0]);
+    if (host === 'youtube.com' || host.endsWith('.youtube.com')) {
+      let id = u.searchParams.get('v') || (u.pathname.match(/^\/(?:shorts|embed)\/([^/]+)/) || [])[1];
+      if (id) return 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id);
+    }
+  } catch (e) {}
+  return '';
+}
+VIDEO_LINKS.forEach((link, i) => {
+  const src = embedUrl(link.trim());
+  if (!src) return;
+  const target = document.getElementById('video-' + (i+1));
+  const iframe = document.createElement('iframe');
+  iframe.src = src;
+  iframe.title = 'Portfolio video ' + (i+1);
+  iframe.loading = 'lazy';
+  iframe.allow = 'autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share';
+  iframe.allowFullscreen = true;
+  target.replaceChildren(iframe);
+});
+</script><div class="footer"><span>© 2026 June Sayon</span><span>Senior Video Editor & AI Creative Specialist</span></div></main></body></html>
